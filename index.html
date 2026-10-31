@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Davide-Andrei Mureșan · Networks & AI Engineer</title>
+    <meta name="description" content="Portfolio of Davide-Andrei Mureșan: MSc student in Communications Networks & Distributed Systems at UTCN Cluj-Napoca. Networking, AI / computer vision and DevOps projects." />
+    <meta name="theme-color" content="#04080a" />
+    <meta property="og:title" content="Davide-Andrei Mureșan · Signal Path" />
+    <meta property="og:description" content="Networks & AI engineer. Fly through the circuit." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='6' y='6' width='20' height='20' rx='2' fill='%2304080a' stroke='%235ff0ff' stroke-width='2'/%3E%3Cpath d='M2 11h4M2 16h4M2 21h4M26 11h4M26 16h4M26 21h4M11 2v4M16 2v4M21 2v4M11 26v4M16 26v4M21 26v4' stroke='%23e8b04a' stroke-width='2'/%3E%3Crect x='12' y='12' width='8' height='8' fill='%235ff0ff'/%3E%3C/svg%3E" />
+
+    <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-grotesk-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <!-- Boot overlay: purely decorative, auto-hides via CSS even if JS fails -->
+    <div class="boot" id="boot" aria-hidden="true">
+      <div class="boot__inner">
+        <div class="boot__chip"><span></span></div>
+        <p class="boot__line"><span class="boot__label" data-boot-label>Powering the board</span> <span class="boot__pct" id="boot-pct">00</span></p>
+        <div class="boot__bar"><i id="boot-bar"></i></div>
+      </div>
+    </div>
+
+    <a class="skip-link" href="#main" data-i18n-skip>Skip to content</a>
+
+    <!-- WebGL canvas mounts here (decoration only) -->
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="stage__fallback"></div>
+    </div>
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="sweep" id="sweep" aria-hidden="true"></div>
+
+    <header class="topbar" id="topbar"></header>
+
+    <!-- Decorative HUD (hidden from assistive tech) -->
+    <aside class="hud" aria-hidden="true">
+      <div class="hud__progress"><i id="hud-bar"></i></div>
+      <div class="hud__section"><span id="hud-index">00</span><span class="hud__sep">/</span><span>05</span></div>
+      <div class="hud__coords" id="hud-coords">X 000.0 · Y 000.0 · Z 000.0</div>
+    </aside>
+
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer" id="footer"></footer>
+
+    <noscript>
+      <style>.boot{display:none}</style>
+      <p style="padding:2rem;color:#e8f0ee">Davide-Andrei Mureșan · Networks & AI engineer · davide.muresan2003@yahoo.com · github.com/davideboss2003</p>
+    </noscript>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
