@@ -273,12 +273,26 @@ export async function createScene({ stage, coords, scroll, mobile, reduced }) {
   render(1 / 60);
   await breathe();
 
-  if (!reduced) {
-    renderer.setAnimationLoop(() => {
-      const raw = clock.getDelta();
-      render(Math.min(raw, 1 / 20));
-      govern(raw);
-    });
-  }
+  const loop = () => {
+    const raw = clock.getDelta();
+    render(Math.min(raw, 1 / 20));
+    govern(raw);
+  };
+  if (!reduced) renderer.setAnimationLoop(loop);
+
+  // If the browser's GPU process crashes or resets, the WebGL context is lost.
+  // Fade back to the static poster instead of showing a frozen/black canvas,
+  // and resume automatically if the browser restores the context.
+  const canvas = renderer.domElement;
+  canvas.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault(); // allows the browser to restore it later
+    renderer.setAnimationLoop(null);
+    stage.classList.remove('is-live');
+  });
+  canvas.addEventListener('webglcontextrestored', () => {
+    clock.getDelta();
+    if (!reduced) renderer.setAnimationLoop(loop); else render(0);
+    stage.classList.add('is-live');
+  });
   return { renderer, scene, camera };
 }
